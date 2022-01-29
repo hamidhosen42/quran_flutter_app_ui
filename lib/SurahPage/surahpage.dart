@@ -37,7 +37,7 @@ class _SurahPageState extends State<SurahPage> {
         backgroundColor: Color(0xFF469565),
         title: Text(
           widget.surah.name,
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -49,7 +49,7 @@ class _SurahPageState extends State<SurahPage> {
               padding: EdgeInsets.all(8),
               margin: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: Color(0xFFb4dbbc),
+                  color: Color(0xFF469565),
                   borderRadius: BorderRadius.circular(
                     10,
                   ),
@@ -64,21 +64,55 @@ class _SurahPageState extends State<SurahPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(ayats[index].ayatNo.toString()),
+                  Text(
+                    ayats[index].ayatNo.toString(),
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                   Align(
                     alignment: Alignment(1, 0),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(ayats[index].ayat),
+                      child: Text(
+                        ayats[index].ayat,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Bangla \n" + ayats[index].banglaTranslation),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Bangla",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(ayats[index].banglaTranslation,
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 18)),
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("English \n" + ayats[index].englishTranslation),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("English",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        Text(ayats[index].englishTranslation,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            )),
+                      ],
+                    ),
                   )
                 ],
               ),

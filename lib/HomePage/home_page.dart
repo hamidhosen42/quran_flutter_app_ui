@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_class/Classes/classes.dart';
 import 'package:flutter_class/Data/data.dart';
 import 'package:flutter_class/SurahPage/surahpage.dart';
+import 'package:flutter_class/profile/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,19 +32,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: Color(0xFF91C3A6),
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
-            "Al Quran",
+            "AL QURAN",
             style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFFFFFFFF)),
+                fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           centerTitle: true,
           elevation: 4,
           backgroundColor: Color(0xFF469565),
+          leading: IconButton(
+            icon: Image.asset("images/logo.png"),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Hamid(),
+                ),
+              );
+            },
+          ),
         ),
         body: Align(
             alignment: Alignment(0, 0),
@@ -69,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                                       MediaQuery.of(context).size.width * 0.9,
                                   height: 60,
                                   decoration: BoxDecoration(
-                                      color: Color(0xFFc0cdc4),
+                                      color: Colors.green[400],
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     mainAxisAlignment:
@@ -77,11 +86,17 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.all(20.0),
-                                        child: Text(surah.name),
+                                        child: Text(surah.name,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(20.0),
-                                        child: Text("${surah.surahNo}"),
+                                        child: Text(
+                                          "${surah.surahNo}",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       )
                                     ],
                                   ),

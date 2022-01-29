@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    var time = Duration(seconds: 5);
+    var time = Duration(seconds: 3);
     Future.delayed(time, () {
       Navigator.pushAndRemoveUntil(
         context,
